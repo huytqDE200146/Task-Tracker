@@ -1,5 +1,5 @@
-import TaskItemFunctional from './components/TaskItemFunctional';
-import TaskItemClass from './components/TaskItemClass';
+import TaskItemFunctional from './components/TaskItemFunctional.js';
+import TaskItemClass from './components/TaskItemClass.js';
 
 const sampleTask = {
   id: 1,
