@@ -1,5 +1,7 @@
 // import TaskItemFunctional from './components/TaskItemFunctional';
 // import TaskItemClass from './components/TaskItemClass';
+import { Container } from 'react-bootstrap';
+import AppNavbar from './components/AppNavbar';
 import TaskList from './components/TaskList';
 import sampleTasks from './data/SampleTasks';
 
@@ -14,8 +16,11 @@ import sampleTasks from './data/SampleTasks';
 function App() {
   return (
     <div className="App">
-      <h2>Task Tracker</h2>
-      <TaskList tasks={sampleTasks} />
+      <AppNavbar />
+      <Container>
+        <h2 className="mb-3">Task List</h2>
+        <TaskList tasks={sampleTasks} />
+      </Container>
     </div>
   );
 }
