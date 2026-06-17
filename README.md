@@ -1,70 +1,72 @@
-# Getting Started with Create React App
+# Task Tracker
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A full-stack React web application for managing personal tasks — create, update, complete, and delete tasks, track progress, and view a live summary of task counts. Built for the FER202 React course assignment ("Custom React Web Application"), covering Learning Outcomes LO1–LO8.
 
-## Available Scripts
+## App Concept
 
-In the project directory, you can run:
+Task Tracker helps a user organize daily work by letting them add tasks with a title, description, priority, and due date, then move each task through three states: To Do, In Progress, and Done. The Home page introduces the app, the Tasks page (Main Feature) is where the actual list management happens, and the About page describes the project and team. A global counter in the navbar always shows how many tasks are currently completed versus total, powered by Redux so the count stays accurate no matter which page the user is on.
 
-### `npm start`
+## Tech Stack
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- React (Create React App)
+- React Router (Home `/`, Tasks `/feature`, About `/about`)
+- Redux for global state (task counts / summary)
+- Bootstrap / React-Bootstrap for layout and styling
+- Fetch/Axios for API calls to a public REST API (e.g. fakestoreapi.com, used here to seed sample task-like data, or a dedicated tasks API if available)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## How to Run
 
-### `npm test`
+```bash
+git clone <repository-url>
+cd task-tracker
+npm install
+npm start
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+The app runs at `http://localhost:3000`. No environment variables are required for the base setup; if a real backend/API key is used, add it to a `.env` file as documented in the code comments.
 
-### `npm run build`
+To build for production:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+npm run build
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Learning Outcomes Coverage
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+**LO1 — Project setup & version control.** The project was scaffolded with Create React App and developed under Git with more than 5 commits, each representing a distinct development step (initial setup, components, routing, state, API integration, styling).
 
-### `npm run eject`
+**LO2 — Reusable components (Class & Functional).** A `TaskCard` component exists in both a Class form and a Functional form, each rendering the same dynamic task data (title, description, status, priority) so both patterns can be compared directly.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+**LO3 — JSX & ES6.** Components use JSX for declarative rendering along with ES6 features such as arrow functions, template literals (e.g. for dynamic class names and labels), and destructuring (e.g. pulling `title`, `status`, and `priority` out of a task object).
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+**LO4 — Styling.** The overall layout, navbar, and content sections use Bootstrap / React-Bootstrap components (Navbar, Container, Card, Button). The `TaskCard` component additionally has custom CSS for status-based color accents (e.g. green for Done, yellow for In Progress).
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+**LO5 — Routing.** React Router defines three routes: Home (`/`) introduces the app, Tasks (`/feature`) is the main task-management page, and About (`/about`) describes the project and contributors.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+**LO6 — State & effects with event handlers.** `useState` manages the task list and form inputs; `useEffect` loads initial data on mount. Event handlers cover adding a task (form submit), deleting a task (button click), and updating a task's status (button click / dropdown).
 
-## Learn More
+**LO7 — API integration, loading/error states, lazy loading.** Task data is fetched from a public API using `fetch`/`axios`, with explicit loading and error states shown in the UI while the request is in flight or if it fails. The Tasks page (`/feature`) is lazy-loaded with `React.lazy` and wrapped in `Suspense` with a fallback spinner.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+**LO8 — Redux global state.** Redux stores a summary of tasks (total count and completed count), which the Navbar reads and displays live, independent of which page is currently active.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Team Contributions
 
-### Code Splitting
+| Member | ID | Role | Contributions | Username |
+|---|---|---|---|---|
+| Trần Quốc Huy | DE200146 | full-stack | All | @HuyTQDE200146 |
+| [Name 2] | — | — | — | — |
+| [Name 3] | — | — | — | — |
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+*(Replace with actual team member names and their specific contributions, e.g. "Set up project & routing", "Built TaskCard components", "Implemented Redux store", "API integration & styling".)*
 
-### Analyzing the Bundle Size
+## Resource Transparency
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- Boilerplate generated with Create React App.
+- UI components from React-Bootstrap (official documentation referenced for Navbar/Card usage).
+- Sample/task data fetched from a public API (e.g. fakestoreapi.com) for demonstration purposes; in a production version this would be replaced by a dedicated tasks backend.
+- No AI-generated code was directly copied into the final submission without review; any AI assistance used for scaffolding or debugging is noted in commit messages where applicable.
 
-### Making a Progressive Web App
+## Notes
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Redux is used for global state management as encouraged by the assignment (eligible for the additional bonus points noted in the exam guidelines).
+- This README should be updated with the team's actual names, individual contribution details, and any deviations from the base concept before final submission.
