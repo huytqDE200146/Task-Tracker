@@ -1,25 +1,19 @@
-//Task Tracker App
+import TaskItemFunctional from './components/TaskItemFunctional';
+import TaskItemClass from './components/TaskItemClass';
 
-import logo from './logo.svg';
-import './App.css';
+const sampleTask = {
+  id: 1,
+  title: 'Học React Router',
+  description: 'Hoàn thành LO5',
+  status: 'pending',
+  dueDate: '2026-06-20',
+};
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <TaskItemFunctional task={sampleTask} />
+      <TaskItemClass task={sampleTask} />
     </div>
   );
 }
