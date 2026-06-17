@@ -1,12 +1,12 @@
 import React from 'react';
 import TaskList from '../components/TaskList';
-import sampleTasks from '../data/sampleTasks';
+import SampleTasks from '../data/SampleTasks';
 
 const Feature = () => {
   return (
     <div>
       <h2 className="mb-3">Task List</h2>
-      <TaskList tasks={sampleTasks} />
+      <TaskList tasks={SampleTasks} />
     </div>
   );
 };
