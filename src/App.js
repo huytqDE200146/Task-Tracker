@@ -1,19 +1,21 @@
-import TaskItemFunctional from './components/TaskItemFunctional.js';
-import TaskItemClass from './components/TaskItemClass.js';
+// import TaskItemFunctional from './components/TaskItemFunctional';
+// import TaskItemClass from './components/TaskItemClass';
+import TaskList from './components/TaskList';
+import sampleTasks from './data/SampleTasks';
 
-const sampleTask = {
-  id: 1,
-  title: 'Học React Router',
-  description: 'Hoàn thành LO5',
-  status: 'pending',
-  dueDate: '2026-06-20',
-};
+// const sampleTask = {
+//   id: 1,
+//   title: 'Học React Router',
+//   description: 'Hoàn thành LO5',
+//   status: 'pending',
+//   dueDate: '2026-06-20',
+// };
 
 function App() {
   return (
     <div className="App">
-      <TaskItemFunctional task={sampleTask} />
-      <TaskItemClass task={sampleTask} />
+      <h2>Task Tracker</h2>
+      <TaskList tasks={sampleTasks} />
     </div>
   );
 }
