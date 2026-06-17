@@ -1,10 +1,10 @@
 // import TaskItemFunctional from './components/TaskItemFunctional';
 // import TaskItemClass from './components/TaskItemClass';
+import React, { Suspense, lazy } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { Container } from 'react-bootstrap';
+import { Container, Spinner } from 'react-bootstrap';
 import AppNavbar from './components/AppNavbar';
 import Home from './pages/Home';
-import Feature from './pages/Feature';
 import About from './pages/About';
 // import TaskList from './components/TaskList';
 // import sampleTasks from './data/SampleTasks';
@@ -17,17 +17,24 @@ import About from './pages/About';
 //   dueDate: '2026-06-20',
 // };
 
+const Feature = lazy(() => import('./pages/Feature'));
+
 function App() {
   return (
     <BrowserRouter>
       <div className="App">
         <AppNavbar />
         <Container>
-         {/* <h2 className="mb-3">Task List</h2>
-         <TaskList tasks={sampleTasks} /> */}
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/feature" element={<Feature />} />
+            <Route
+              path="/feature"
+              element={
+                <Suspense fallback={<Spinner animation="border" />}>
+                  <Feature />
+                </Suspense>
+              }
+            />
             <Route path="/about" element={<About />} />
           </Routes>
         </Container>
